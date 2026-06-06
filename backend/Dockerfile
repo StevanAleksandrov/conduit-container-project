@@ -1,4 +1,4 @@
-FROM python:3.6-slim-buster AS builder
+FROM python:3.7-slim-bullseye AS builder
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -15,7 +15,7 @@ RUN pip install --upgrade pip setuptools wheel \
     && pip wheel --no-cache-dir --wheel-dir /wheels -r requirements.txt
 
 
-FROM python:3.6-slim-buster AS runtime
+FROM python:3.7-slim-bullseye AS runtime
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
