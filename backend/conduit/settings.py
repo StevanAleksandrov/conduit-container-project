@@ -24,6 +24,7 @@ def env_list(name, default=""):
     value = os.environ.get(name, default)
     return [item.strip() for item in value.split(",") if item.strip()]
 
+
 def env_required(name):
     value = os.environ.get(name)
     if not value:
