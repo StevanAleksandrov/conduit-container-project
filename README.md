@@ -23,6 +23,8 @@ The frontend routes API requests through the local Nginx proxy to communicate wi
 │   ├── entrypoint.sh
 │   ├── requirements.txt
 │   └── .dockerignore
+├── docs/
+│   └── conduit-container-checklist.pdf
 ├── frontend/
 │   ├── src/
 │   ├── Dockerfile
