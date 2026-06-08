@@ -22,4 +22,3 @@ logs/
 .vscode/
 .idea/
 .DS_Store
-"@ | Set-Content .gitignore
