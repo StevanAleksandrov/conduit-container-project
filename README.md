@@ -53,40 +53,23 @@ docker compose up -d --build
 
 ## Configuration
 
-Create a local `.env` from the template:
+Runtime configuration is based on [`example.env`](./example.env).
+
+Create a local `.env` file from the template:
 
 ```bash
 cp example.env .env
 ```
 
-Key variables:
+The `example.env` file contains the default variables required for the Docker Compose setup. For local usage, the default values can be used directly.
 
-```env
-FRONTEND_PORT=8282
-BACKEND_PORT=8000
-
-DJANGO_DEBUG=False
-DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
-DJANGO_SECRET_KEY=change-me
-DJANGO_CORS_ORIGIN_WHITELIST=localhost:8282,127.0.0.1:8282
-
-DJANGO_SUPERUSER_USERNAME=admin
-DJANGO_SUPERUSER_EMAIL=admin@example.com
-DJANGO_SUPERUSER_PASSWORD=replace-with-your-admin-password
-
-POSTGRES_DB=conduit
-POSTGRES_USER=conduit_user
-POSTGRES_PASSWORD=replace-with-your-postgres-password
-POSTGRES_HOST=database
-POSTGRES_PORT=5432
-```
-The Django admin login uses the email and password configured through `DJANGO_SUPERUSER_EMAIL` and `DJANGO_SUPERUSER_PASSWORD`.
-
-For VM deployment, add the VM IP to `DJANGO_ALLOWED_HOSTS`:
+For VM deployment, adjust at least `DJANGO_ALLOWED_HOSTS` in the local `.env` file:
 
 ```env
 DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,<vm-ip>
 ```
+
+The Django admin login uses the email and password configured through `DJANGO_SUPERUSER_EMAIL` and `DJANGO_SUPERUSER_PASSWORD`.
 
 Database data is persisted through a Docker volume and survives `docker compose down`. Use `docker compose down -v` only when a full reset is intended.
 
